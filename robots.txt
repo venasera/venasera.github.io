@@ -1,6 +1,6 @@
 User-agent: *
 User-agent: Yandex
-Host: https://venasera.ru
+Host: https://venasera.github.io
 Allow: /
 Disallow: /forum/
 Disallow: /w/
@@ -17,4 +17,4 @@ Disallow: /wp-comments
 User-agent: Googlebot-Image
 Allow: /*
 
-Sitemap: https://venasera.ru/sitemap.xml
+Sitemap: https://venasera.github.io/sitemap.xml
