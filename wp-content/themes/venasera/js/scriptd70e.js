@@ -1,0 +1,56 @@
+/**
+ * Created by O. Savitskyi on 14.05.2016.
+ */
+
+
+jQuery('#wp-submit').click(function (event) {
+        event.preventDefault();
+
+        jQuery.ajax({
+            type: 'post',
+            url: '/wp-login.php',
+            data: {'log': jQuery('#user_login').val(), 'pwd': jQuery('#user_pass').val()},
+            success: function (data) {
+                if (data.indexOf('?action=logout')>0)  document.location.href = 'user/index.html';
+                else
+                    jQuery('#login-error').text('Ошибка входа. Повторите.');
+
+            }
+
+        });
+    }
+);
+
+jQuery('#login_form > div > div > a').click(function(event){ alert('1');
+      jQuery('#login_form').click();
+    });
+jQuery('#signin_form > div > div > form > a').click(function(event){alert('2');
+    jQuery('#signin_form').click();
+});
+
+jQuery('#user_login').attr("placeholder", "E-mail");
+jQuery('#user_pass').attr("placeholder", "Пароль");
+var labels = jQuery('#loginform > p > label');
+if(labels[0] && labels[1]){
+    labels[0].remove();
+    labels[1].remove();
+}
+$(document).ready(function() {
+    $('.dropdown-toggle').dropdown();
+    $('#paid_content').modal('show');
+    $('.buy_yandex').on('click', function(){
+        $('#paid_yandex').modal('show');
+        return false;
+    });
+
+    $('.bg-info').click(function(){
+        $('.error').css('display', 'none');
+        $('.success').css('display', 'none');
+        $('.bg-info').css('display', 'none');
+    });
+});
+
+
+$(function(){$.fn.scrollToTop=function(){$(this).hide().removeAttr("href");if($(window).scrollTop()>="300"){$(this).fadeIn("slow")}var scrollDiv=$(this);$(window).scroll(function(){if($(window).scrollTop()<="350"){$(scrollDiv).fadeOut("slow")}else{$(scrollDiv).fadeIn("slow")}});
+    $(this).click(function(){$("html, body").animate({scrollTop:0},"slow")})}});
+$(function() { $("#up").scrollToTop(); });
